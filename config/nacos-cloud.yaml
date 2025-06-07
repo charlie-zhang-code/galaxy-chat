@@ -1,0 +1,91 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+  main:
+    banner-mode: off
+    allow-bean-definition-overriding: true
+    # lazy-initialization: true
+
+  data:
+    redis:
+      database: 1
+      # host: 101.201.174.43
+      host: localhost
+      port: 6379
+      # username: root
+      password: 123456
+      timeout: 10s
+      lettuce:
+        pool:
+          max-active: 200
+          max-wait: -1ms
+          max-idle: 10
+          min-idle: 0
+  cache:
+    type: redis
+    redis:
+      time-to-live: 3600000
+      cache-null-values: true
+
+  rabbitmq:
+    # host: 101.201.174.43
+    host: localhost
+    port: 5672
+    username: root
+    password: 123456
+    virtual-host: /
+
+sa-token:
+  token-name: Authorization
+  timeout: 2592000
+  active-timeout: -1
+  is-concurrent: true
+  is-share: false
+  token-style: random-64
+  is-log: true
+  is-read-cookie: false
+  is-print: true
+  alone-redis:
+    database: 2
+    host: localhost
+    port: 6379
+    password: 123456
+    timeout: 10s
+
+mybatis-plus:
+  # mapper-locations: classpath:mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+    # 一级缓存配置 一级缓存是本地或者说局部缓存，它不能被关闭，只能配置缓存范围。SESSION 或者 STATEMENT。
+    local-cache-scope: session
+    # 二级缓存总开关
+    cache-enabled: true
+  global-config:
+    db-config:
+      id-type: assign_id
+    #   logic-delete-field: deleted
+    #   logic-delete-value: 1
+    #   logic-not-delete-value: 0
+    banner: false
+
+#打印sql语句
+# logging:
+#   level:
+#     io.github.charlie.mapper: debug
+
+dubbo:
+  application:
+    qos-enable: false
+  protocol:
+    name: dubbo
+    port: -1
+    serialization: fastjson2
+  consumer:
+    timeout: 3000
+    check: false

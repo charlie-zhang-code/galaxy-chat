@@ -1,0 +1,48 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: service-xxxxx
+          uri: lb://service-xxxxx
+          predicates:
+            - Path=/xxxxx/**
+          filters:
+            - StripPrefix=1
+
+    loadbalancer:
+      enabled: true
+
+knife4j:
+  gateway:
+    enabled: true
+    tags-sorter: alpha
+    operations-sorter: alpha
+    strategy: discover
+    discover:
+      enabled: true
+      version: openapi3
+
+security:
+  admin:
+    urls:
+      - /system/api/admin/**
+      - /online/api/admin/**
+      - /judge/api/admin/**
+      # - /analysis/api/admin/**
+  ignore:
+    urls:
+      - /webjars/**
+      - /doc.html
+      - /swagger-resources/**
+      - /v3/api-docs/**
+      - /swagger-ui/**
+
+      - /xxxxxx/webjars/**
+      - /xxxxxx/doc.html
+      - /xxxxxx/swagger-resources/**
+      - /xxxxxx/v3/api-docs/**
+      - /xxxxxx/swagger-ui/**

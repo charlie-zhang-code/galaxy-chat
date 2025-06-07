@@ -1,0 +1,32 @@
+server:
+  port: 29083
+
+spring:
+  application:
+    name: service-system
+  profiles:
+    active: @profiles.active@
+  cloud:
+    nacos:
+      server-addr: @nacos.server-addr@
+      username: @nacos.username@
+      password: @nacos.password@
+      discovery:
+        group: @nacos.discovery.group@
+        namespace: @nacos.discovery.namespace@
+      config:
+        group: @nacos.config.group@
+        namespace: @nacos.config.namespace@
+  config:
+    import:
+      - optional:nacos:application-common.yaml
+      - optional:nacos:application-datasource.yaml
+      - optional:nacos:${spring.application.name}.yaml
+
+dubbo:
+  registry:
+    address: nacos://@nacos.server-addr@
+    username: @nacos.username@
+    password: @nacos.password@
+    parameters:
+      namespace: @nacos.discovery.group@
