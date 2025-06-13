@@ -4,22 +4,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>io.github.charlie</groupId>
-        <artifactId>spring-starter</artifactId>
+        <groupId>io.charlie</groupId>
+        <artifactId>galaxy-chat</artifactId>
         <version>${revision}</version>
     </parent>
 
+    <packaging>pom</packaging>
+
     <artifactId>galaxy-common</artifactId>
 
-    <packaging>pom</packaging>
     <modules>
+        <module>common-ai</module>
         <module>common-core</module>
         <module>common-mybatis</module>
         <module>common-redis</module>
-        <module>common-web</module>
         <module>common-satoken</module>
-        <module>common-nacos</module>
-        <module>common-dubbo</module>
+        <module>common-web</module>
     </modules>
 
 </project>

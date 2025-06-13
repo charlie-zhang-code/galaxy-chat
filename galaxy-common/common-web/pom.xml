@@ -4,33 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>io.github.charlie</groupId>
+        <groupId>io.charlie</groupId>
         <artifactId>galaxy-common</artifactId>
         <version>${revision}</version>
     </parent>
 
     <artifactId>common-web</artifactId>
 
-    <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>net.coobird</groupId>
-            <artifactId>thumbnailator</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -41,16 +26,15 @@
         </dependency>
 
         <dependency>
-            <groupId>io.github.charlie</groupId>
-            <artifactId>common-core</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>io.github.charlie</groupId>
-            <artifactId>common-satoken</artifactId>
-            <optional>true</optional>
+            <groupId>net.coobird</groupId>
+            <artifactId>thumbnailator</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>io.charlie</groupId>
+            <artifactId>common-core</artifactId>
+            <version>${revision}</version>
+        </dependency>
     </dependencies>
 
 </project>
